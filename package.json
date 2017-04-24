@@ -1,0 +1,27 @@
+{
+  "name": "read-as-buffer",
+  "version": "1.0.0",
+  "description": "stream to buffer",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caub/read-as-buffer.git"
+  },
+  "keywords": [
+    "stream",
+    "buffer",
+    "convert"
+  ],
+  "author": "caub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caub/read-as-buffer/issues"
+  },
+  "homepage": "https://github.com/caub/read-as-buffer#readme"
+}

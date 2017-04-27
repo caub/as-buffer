@@ -1,6 +1,6 @@
 {
   "name": "read-as-buffer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "stream to buffer",
   "main": "index.js",
   "directories": {

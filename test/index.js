@@ -5,26 +5,19 @@ const {Readable} = require('stream');
 class Counter extends Readable {
 	constructor(opt) {
 		super(opt);
-		this._max = 100000;
-		this._index = 1;
+		this._max = 1e5;
+		this._index = 0;
 	}
 
 	_read() {
-		var i = this._index++;
-		if (i > this._max)
-			this.push(null);
-		else {
-			var str = '' + i;
-			var buf = Buffer.from(str, 'ascii');
-			this.push(buf);
-		}
+		this.push(++this._index > this._max ? null : '5');
 	}
 }
 
 
 readAsBuffer(new Counter())
 .then(buf => {
-	assert(buf.length);
+	assert.equal(buf.length, 1e5);
 })
 .catch(e => console.log);
 

@@ -1,6 +1,8 @@
 
 const readAsBuffer = (s, maxsize=1e7) =>
 	new Promise((resolve, reject) => {
+		if (s instanceof Buffer || typeof s == 'string') return resolve(Buffer.from(s));
+
 		const bufs = [];
 		let size = 0;
 		s.on('data', d => {

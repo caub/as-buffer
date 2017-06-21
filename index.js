@@ -9,7 +9,7 @@ const readAsBuffer = (s, maxsize=1e7) =>
 			bufs.push(d);
 			size += d.length;
 			if (size > maxsize) {
-				const err = new Error(`File too large, max: ${maxsize} B`);
+				const err = new Error(`File too large, max: ${Math.round(maxsize/1000)}kB`);
 				err.status = 413;
 				return reject(err);
 			}

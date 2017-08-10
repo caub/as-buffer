@@ -1,14 +1,11 @@
-## Read stream as buffer
+## Read stream as buffer [![Build Status](https://travis-ci.org/caub/read-as-buffer.svg?branch=master)](https://travis-ci.org/caub/read-as-buffer)
 
 ```js
 var readAsBuffer = require('read-as-buffer');
 
-readAsBuffer(stream).then(buf => console.log('read', buf));
+var stream = fs.createReadStream('./photo.png');
 
-var s = fs.createReadStream('./photo.png');
-
-// with a max-size, default to 1e7, 10MiB
-readAsBuffer(s, 1e6)
+readAsBuffer(stream, 1e6) // with a max-size, default to 1e7, 10MiB
 	.then(buf => console.log('read', buf))
 	.catch(e => console.log('file too large'));
 

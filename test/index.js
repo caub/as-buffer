@@ -1,4 +1,4 @@
-const readAsBuffer = require('../');
+const read = require('../');
 const assert = require('assert');
 const {Readable} = require('stream');
 
@@ -14,28 +14,33 @@ class Counter extends Readable {
 	}
 }
 
+(async () => {
 
-readAsBuffer(new Counter())
-.then(buf => {
-	assert.equal(buf.length, 1e5);
-})
-.catch(console.log);
+	console.log('  - read Stream');
+	const buf1 = await read(new Counter());
+	assert.equal(buf1.length, 1e5);
 
-readAsBuffer(new Counter(), 1e4)
-.then(console.log)
-.catch(e => {
-	assert(e.message.includes('too large'));
-});
+	try {
+		const buf2 = await read(new Counter(), 1e4);
+	}
+	catch(e) {
+		assert(e.message.includes('too large'));
+	}
 
-const s='test';
+	console.log('  - read String');
+	const s = 'test';
+	const buf3 = await read(s);
+	assert.equal(buf3, s);
 
-readAsBuffer(s)
-.then(x => assert.equal(x, s))
-.catch(console.log);
+	console.log('  - read Array');
+	const a = ['test', Buffer.from('hello')];
+	const buf4 = await read(a);
+	assert.equal(buf4.toString(), 'testhello');
 
+	console.log('  - read Buffer');
+	const buf5_ = Buffer.from('ef26', 'hex');
+	const buf5 = await read(buf5_);
+	assert.equal(buf5_.compare(buf5), 0);
 
-const b=Buffer.from('ef26', 'hex');
-
-readAsBuffer(b)
-.then(x => assert.equal(x.compare(b), 0))
-.catch(console.log);
+})()
+.catch(console.error);

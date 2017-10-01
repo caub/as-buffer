@@ -1,7 +1,12 @@
 
 const readAsBuffer = (s, maxsize=1e7) =>
 	new Promise((resolve, reject) => {
-		if (s instanceof Buffer || typeof s == 'string') return resolve(Buffer.from(s));
+		if (s instanceof Buffer || typeof s == 'string') {
+			return resolve(Buffer.from(s));
+		}
+		if (Array.isArray(s)) {
+			return resolve(Buffer.concat(s.map(Buffer.from)));
+		}
 
 		const bufs = [];
 		let size = 0;

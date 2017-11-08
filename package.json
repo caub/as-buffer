@@ -1,15 +1,16 @@
 {
-  "name": "read-as-buffer",
-  "version": "1.1.0",
-  "description": "stream to buffer",
+  "name": "as-buffer",
+  "version": "1.2.0",
+  "description": "stream or anything to buffer as a Promise",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test/"
+    "test": "nyc node test",
+    "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
-  "repository": "git+https://github.com/caub/read-as-buffer.git",
+  "repository": "git+https://github.com/caub/as-buffer.git",
   "keywords": [
     "stream",
     "buffer",
@@ -17,6 +18,10 @@
   ],
   "author": "caub",
   "license": "ISC",
-  "bugs": "https://github.com/caub/read-as-buffer/issues",
-  "homepage": "https://github.com/caub/read-as-buffer#readme"
+  "bugs": "https://github.com/caub/as-buffer/issues",
+  "homepage": "https://github.com/caub/as-buffer#readme",
+  "devDependencies": {
+    "codecov": "^3.0.0",
+    "nyc": "^11.3.0"
+  }
 }

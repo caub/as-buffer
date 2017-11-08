@@ -1,4 +1,4 @@
-## Read stream as buffer
+## Read stream as buffer\*
 [![npm version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![coverage status][codecov-image]][codecov-url]
@@ -13,6 +13,7 @@ read(stream, 1e6) // with a max-size, default to 1e7, 10MiB
 	.catch(e => console.log('file too large'));
 
 ```
+\*: exception of object-mode streams that are returned as array
 
 like https://github.com/stream-utils/stream-to-array but simpler
 

@@ -26,7 +26,7 @@ const readAsBuffer = (s, maxsize=1e7) =>
 
 		function onEnd(err) {
 			if (err) reject(err);
-			else resolve(Buffer.concat(bufs));
+			else resolve(s._readableState && s._readableState.objectMode ? bufs : Buffer.concat(bufs));
 		}
 		
 	});

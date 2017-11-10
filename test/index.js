@@ -33,9 +33,9 @@ class Counter extends Readable {
 	assert.equal(buf3, s);
 
 	console.log('  - read Array');
-	const a = ['test', Buffer.from('hello')];
+	const a = [12, 45, 255, 560, 1, 1, 0];
 	const buf4 = await read(a);
-	assert.equal(buf4.toString(), 'testhello');
+	assert.equal(buf4.toString(), Buffer.from(a));
 
 	console.log('  - read Buffer');
 	const buf5_ = Buffer.from('ef26', 'hex');

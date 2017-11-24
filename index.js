@@ -1,4 +1,3 @@
-
 const readAsBuffer = (s, maxsize=1e7) =>
 	new Promise((resolve, reject) => {
 		if (Buffer.isBuffer(s) || Array.isArray(s) || typeof s == 'string') {

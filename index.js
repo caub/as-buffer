@@ -1,6 +1,6 @@
-const readAsBuffer = (s, maxsize=1e7) =>
+const readAsBuffer = (s, maxsize = 1e7) =>
 	new Promise((resolve, reject) => {
-		if (Buffer.isBuffer(s) || Array.isArray(s) || typeof s == 'string') {
+		if (Buffer.isBuffer(s) || Array.isArray(s) || typeof s === 'string') {
 			return resolve(Buffer.from(s));
 		}
 
@@ -12,7 +12,7 @@ const readAsBuffer = (s, maxsize=1e7) =>
 			if (size > maxsize) {
 				const err = new Error(`File too large, max: ${Math.round(maxsize/1000)}kB`);
 				err.status = 413;
-				return reject(err);
+				reject(err);
 			}
 		});
 
@@ -21,10 +21,11 @@ const readAsBuffer = (s, maxsize=1e7) =>
 		s.on('error', onEnd);
 
 		function onEnd(err) {
-			if (err) reject(err);
-			else resolve(s._readableState && s._readableState.objectMode ? bufs : Buffer.concat(bufs));
+			if (err) {
+				return reject(err);
+			}
+			resolve(s._readableState && s._readableState.objectMode ? bufs : Buffer.concat(bufs));
 		}
-		
 	});
 
 module.exports = readAsBuffer;

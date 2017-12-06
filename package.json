@@ -1,6 +1,6 @@
 {
   "name": "as-buffer",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "stream or anything to buffer as a Promise",
   "main": "index.js",
   "files": ["index.js"],

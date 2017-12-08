@@ -1,6 +1,6 @@
 {
   "name": "as-buffer",
-  "version": "1.5.0",
+  "version": "1.5.3",
   "description": "stream or anything to buffer as a Promise",
   "main": "index.js",
   "files": [
@@ -20,12 +20,11 @@
   "license": "ISC",
   "bugs": "https://github.com/caub/as-buffer/issues",
   "homepage": "https://github.com/caub/as-buffer#readme",
-  "engines": {
-    "node": ">=4.8.6"
-  },
   "devDependencies": {
     "codecov": "^3.0.0",
     "nyc": "^11.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "es6-promise": "^4.1.1"
+  }
 }

@@ -1,9 +1,11 @@
 {
   "name": "as-buffer",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "stream or anything to buffer as a Promise",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "nyc node test",
     "coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
@@ -18,8 +20,12 @@
   "license": "ISC",
   "bugs": "https://github.com/caub/as-buffer/issues",
   "homepage": "https://github.com/caub/as-buffer#readme",
+  "engines": {
+    "node": ">=4.8.6"
+  },
   "devDependencies": {
     "codecov": "^3.0.0",
     "nyc": "^11.3.0"
-  }
+  },
+  "dependencies": {}
 }

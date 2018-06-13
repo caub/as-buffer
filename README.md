@@ -8,7 +8,7 @@ const read = require('as-buffer');
 
 const stream = fs.createReadStream('./photo.png');
 
-read(stream, 1e6) // with a max-size, default to 1e7, 10MiB
+read(stream, { maxsize: 1e6 }) // with a max-size, default to 1e7, 10MiB
 	.then(buf => console.log('read', buf))
 	.catch(e => console.log('file too large'));
 

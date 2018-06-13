@@ -1,0 +1,4 @@
+coverage*
+.nyc*
+test
+.travis.yml
